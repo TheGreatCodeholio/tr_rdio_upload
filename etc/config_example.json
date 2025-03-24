@@ -1,0 +1,56 @@
+{
+  "log_level": 1,
+  "temp_file_path": "/dev/shm",
+  "m4a_audio_compression": {
+    "enabled": true,
+    "sample_rate": 16000,
+    "bitrate": 96,
+    "normalization": true,
+    "use_loudnorm": true,
+    "loudnorm_params": {
+      "I": -16,
+      "TP": -1.5,
+      "LRA": 11,
+      "linear": "true"
+    }
+  },
+  "archive": {
+    "archive_type": "scp",
+    "archive_path": "/srv/scanner_audio",
+    "archive_extensions": [
+      ".wav",
+      ".m4a",
+      ".json"
+    ],
+    "google_cloud": {
+      "project_id": "my-gcloud-project-id",
+      "bucket_name": "my-bucket",
+      "credentials_file": "etc/google_cloud.json"
+    },
+    "aws_s3": {
+      "access_key_id": "YOUR_ACCESS_KEY",
+      "secret_access_key": "YOUR_SECRET_KEY",
+      "bucket_name": "escanner",
+      "region": "us-east-1"
+    },
+    "scp": {
+      "host": "my.scpserver.net",
+      "port": 22,
+      "user": "scpuser",
+      "password": "",
+      "private_key_path": "/home/user/id_rsa",
+      "base_url": "https://audio.example.com"
+    },
+    "local": {
+      "base_url": "https://example.com/audio"
+    }
+  },
+  "rdio_systems": [
+    {
+      "enabled": true,
+      "system_id": 1,
+      "rdio_url": "https://myrdio.server.com/api/trunk-recorder-call-upload",
+      "rdio_api_key": "4060a870-accf-40e8-abc4-4e8557ebabd7"
+    }
+  ]
+}
